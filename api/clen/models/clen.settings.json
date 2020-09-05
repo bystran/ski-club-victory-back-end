@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clens",
+  "info": {
+    "name": "Člen"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Meno": {
+      "type": "string",
+      "required": true
+    },
+    "OMne": {
+      "type": "text"
+    },
+    "Infoska": {
+      "type": "component",
+      "repeatable": true,
+      "component": "komponent.infoska",
+      "required": true,
+      "max": 4,
+      "min": 1
+    },
+    "Profilova_fotka": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "Galeria": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Slug": {
+      "type": "string"
+    }
+  }
+}
