@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/domov-stan-sa-viktorakom",
+      "handler": "domov-stan-sa-viktorakom.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/domov-stan-sa-viktorakom",
+      "handler": "domov-stan-sa-viktorakom.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/domov-stan-sa-viktorakom",
+      "handler": "domov-stan-sa-viktorakom.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

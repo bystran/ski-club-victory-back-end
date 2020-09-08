@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "treners",
+  "info": {
+    "name": "Tréner"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "meno": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

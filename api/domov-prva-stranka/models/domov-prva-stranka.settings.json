@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "domov_prva_strankas",
+  "info": {
+    "name": "Domov - prvá stránka"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "nadpisMensi": {
+      "type": "string",
+      "required": true
+    },
+    "nadpisVelky": {
+      "type": "string",
+      "required": true
+    },
+    "obrazokPravaStrana": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "VelkeObrazky": {
+      "type": "component",
+      "repeatable": true,
+      "component": "komponent.static-gallery",
+      "required": true,
+      "max": 2,
+      "min": 1
+    }
+  }
+}

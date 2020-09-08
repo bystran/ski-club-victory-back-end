@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "domov_3_videas",
+  "info": {
+    "name": "Domov - 3 videa"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "malyNadpis": {
+      "type": "string",
+      "required": true
+    },
+    "velkyText": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": true
+    },
+    "videa": {
+      "type": "component",
+      "repeatable": true,
+      "component": "komponent.vieda",
+      "max": 3,
+      "min": 3,
+      "required": true
+    }
+  }
+}

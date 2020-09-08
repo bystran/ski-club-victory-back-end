@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/domov-prva-stranka",
+      "handler": "domov-prva-stranka.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/domov-prva-stranka",
+      "handler": "domov-prva-stranka.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/domov-prva-stranka",
+      "handler": "domov-prva-stranka.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

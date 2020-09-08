@@ -44,7 +44,8 @@
       "required": false
     },
     "Slug": {
-      "type": "string"
+      "type": "uid",
+      "targetField": "Meno"
     }
   }
 }

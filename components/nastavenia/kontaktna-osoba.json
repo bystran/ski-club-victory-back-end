@@ -1,16 +1,16 @@
 {
-  "collectionName": "components_komponent_infoskas",
+  "collectionName": "components_nastavenia_kontaktna_osobas",
   "info": {
-    "name": "Infoska",
-    "icon": "info-circle"
+    "name": "Kontaktná Osoba",
+    "icon": "address-book"
   },
   "options": {},
   "attributes": {
-    "Nadpis": {
+    "meno": {
       "type": "string",
       "required": true
     },
-    "info": {
+    "telefon": {
       "type": "string",
       "required": true
     }

@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "kontakts",
+  "info": {
+    "name": "Kontakt"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "telefon": {
+      "type": "string",
+      "required": true
+    },
+    "KontaktnaOsoba": {
+      "type": "component",
+      "repeatable": true,
+      "component": "nastavenia.kontaktna-osoba",
+      "min": 1,
+      "max": 3,
+      "required": true
+    },
+    "Firma": {
+      "type": "component",
+      "repeatable": false,
+      "component": "nastavenia.firma"
+    },
+    "foto": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

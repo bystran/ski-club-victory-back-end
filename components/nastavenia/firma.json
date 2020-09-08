@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_nastavenia_firmas",
+  "info": {
+    "name": "Firma",
+    "icon": "building"
+  },
+  "options": {},
+  "attributes": {
+    "Nazov": {
+      "type": "string"
+    },
+    "Mesto": {
+      "type": "string",
+      "required": true
+    },
+    "Ulica": {
+      "type": "string",
+      "required": true
+    },
+    "PSC": {
+      "type": "string"
+    },
+    "ICO": {
+      "type": "string",
+      "required": true,
+      "maxLength": 8,
+      "minLength": 8
+    },
+    "DIC": {
+      "type": "string",
+      "maxLength": 10,
+      "minLength": 10,
+      "required": true
+    }
+  }
+}

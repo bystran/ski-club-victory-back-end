@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/uspeches",
+      "handler": "uspech.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/uspeches/count",
+      "handler": "uspech.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/uspeches/:id",
+      "handler": "uspech.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/uspeches",
+      "handler": "uspech.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/uspeches/:id",
+      "handler": "uspech.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/uspeches/:id",
+      "handler": "uspech.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

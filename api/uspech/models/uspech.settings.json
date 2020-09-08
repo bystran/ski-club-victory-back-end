@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "uspeches",
+  "info": {
+    "name": "Úspech"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Meno": {
+      "type": "string",
+      "required": true
+    },
+    "Titul": {
+      "type": "string",
+      "required": true
+    },
+    "TitulKategoria": {
+      "type": "string",
+      "required": true
+    },
+    "Level": {
+      "type": "enumeration",
+      "enum": [
+        "velky",
+        "maly"
+      ],
+      "required": true,
+      "default": "maly"
+    }
+  }
+}

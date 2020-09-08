@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_komponent_benefits",
+  "info": {
+    "name": "benefit",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "Benefit": {
+      "type": "string"
+    }
+  }
+}

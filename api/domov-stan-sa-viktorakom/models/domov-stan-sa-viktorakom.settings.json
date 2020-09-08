@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "domov_stan_sa_viktorakoms",
+  "info": {
+    "name": "Domov - staň sa viktorákom"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Nadpis": {
+      "type": "string",
+      "required": true
+    },
+    "obrazok": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "Benefit": {
+      "type": "component",
+      "repeatable": true,
+      "component": "komponent.benefit",
+      "max": 5,
+      "min": 3,
+      "required": true
+    },
+    "Text": {
+      "type": "text"
+    }
+  }
+}

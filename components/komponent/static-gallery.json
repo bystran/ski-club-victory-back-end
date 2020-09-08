@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_komponent_static_galleries",
+  "info": {
+    "name": "StaticGallery",
+    "icon": "images"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/domov-3-videa",
+      "handler": "domov-3-videa.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/domov-3-videa",
+      "handler": "domov-3-videa.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/domov-3-videa",
+      "handler": "domov-3-videa.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
