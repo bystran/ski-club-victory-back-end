@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/facebook-posts",
+      "handler": "facebook-posts.findAll",
+      "config": {
+
+      }
+    }
+  ]
+}
