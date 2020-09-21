@@ -51,7 +51,7 @@ module.exports = {
 
 
     const news = extract_news(data);
-    const img_of_the_week = first_with_ht(data, "#mtbiker")
+    const img_of_the_week = first_with_ht(data, "#fotkatyzdna")
     const photos = find_post_type(data, "added_photos")
 
 

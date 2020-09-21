@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "o_nas",
+  "info": {
+    "name": "O nás"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Podnadpis": {
+      "type": "string",
+      "private": false,
+      "required": true,
+      "unique": false
+    },
+    "Nadpis": {
+      "type": "string"
+    },
+    "text1": {
+      "type": "text",
+      "required": true
+    },
+    "Nadpis2": {
+      "type": "string",
+      "required": true
+    },
+    "OnasText": {
+      "type": "text",
+      "required": true
+    },
+    "infosky": {
+      "type": "component",
+      "repeatable": true,
+      "component": "komponent.infoska",
+      "max": 5,
+      "min": 4
+    }
+  }
+}

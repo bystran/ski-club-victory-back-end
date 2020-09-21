@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/clenovia-stranka",
+      "handler": "clenovia-stranka.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/clenovia-stranka",
+      "handler": "clenovia-stranka.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/clenovia-stranka",
+      "handler": "clenovia-stranka.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

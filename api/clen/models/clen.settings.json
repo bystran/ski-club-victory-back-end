@@ -46,6 +46,9 @@
     "Slug": {
       "type": "uid",
       "targetField": "Meno"
+    },
+    "birth_date": {
+      "type": "date"
     }
   }
 }

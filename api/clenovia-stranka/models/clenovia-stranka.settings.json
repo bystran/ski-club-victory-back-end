@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "clenovia_stranka_s",
+  "info": {
+    "name": "Clenovia - (stranka)"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Info": {
+      "type": "component",
+      "repeatable": true,
+      "component": "komponent.infoska",
+      "max": 3,
+      "min": 3
+    }
+  }
+}
