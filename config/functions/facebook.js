@@ -5,6 +5,7 @@ const fields = 'id,message,permalink_url,full_picture,picture,message_tags,statu
 
 
 const deleteSavedNews = async () => {
+  console.log('Deleting news');
   const news = await strapi.query('fbnews').find({});
   news.forEach(n => strapi.query('fbnews').delete({
     id: n.id
@@ -68,14 +69,20 @@ module.exports = {
 
   updatePhotoOfTheWeek: async (inData) => {
     const rollbackPhoto = await strapi.query('fbphoto').find({});
-    strapi.query('fbphoto').delete({
-      id: rollbackPhoto[0].id
-    });
+    try{
+      strapi.query('fbphoto').delete({
+        id: rollbackPhoto[0].id
+      });
+    }catch(e){
+
+    }
+
     try{
       let data;
       if(!inData){
         data = await getFBData(100);
       }else{
+
         data = inData
       }
       const photoOfTheWeek = first_with_ht(data, "#fotkatyzdna");
@@ -139,9 +146,10 @@ module.exports = {
   },
   updateAll: async () => {
     const data = await getFBData(100);
+    module.exports.updatePhotoOfTheWeek(data);
     module.exports.updateNews(data);
     module.exports.updateMedia(data);
-    module.exports.updatePhotoOfTheWeek(data);
+
     console.log('All resources have been updated');
   },
 }
