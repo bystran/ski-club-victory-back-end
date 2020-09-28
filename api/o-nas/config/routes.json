@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/o-nas",
+      "handler": "o-nas.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/o-nas",
+      "handler": "o-nas.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/o-nas",
+      "handler": "o-nas.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
