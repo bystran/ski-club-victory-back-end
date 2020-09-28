@@ -105,9 +105,14 @@ module.exports = {
         data = inData
       }
       const fb_news = extract_news(data);
-      fb_news.forEach( fbn =>{
-          strapi.query('fbnews').create(fbn);
-      });
+      try {
+        fb_news.forEach( fbn =>{
+            strapi.query('fbnews').create(fbn);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+
     } catch (error) {
       console.log(error);
       rollBackNews.forEach(n=>strapi.query('fbnews').create(n))
