@@ -152,15 +152,10 @@ module.exports = {
     }
   },
   updateAll: async () => {
-    try {
-      const data = await getFBData(100);
-      await module.exports.updatePhotoOfTheWeek(data);
-      //await module.exports.updateNews(data);
-      await module.exports.updateMedia(data);
-    } catch (error) {
-      console.log(error);
-    }
-
+    const data = await getFBData(100);
+    module.exports.updatePhotoOfTheWeek(data);
+    module.exports.updateNews(data);
+    module.exports.updateMedia(data);
 
     console.log('All resources have been updated');
   },

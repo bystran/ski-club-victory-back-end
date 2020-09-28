@@ -10,16 +10,16 @@
       "type": "text"
     },
     "permalink_url": {
-      "type": "string"
+      "type": "text"
     },
     "full_picture": {
-      "type": "string"
+      "type": "text"
     },
     "picture": {
-      "type": "string"
+      "type": "text"
     },
     "created_time": {
-      "type": "string"
+      "type": "text"
     }
   }
 }
