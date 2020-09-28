@@ -155,7 +155,7 @@ module.exports = {
     try {
       const data = await getFBData(100);
       await module.exports.updatePhotoOfTheWeek(data);
-      await module.exports.updateNews(data);
+      //await module.exports.updateNews(data);
       await module.exports.updateMedia(data);
     } catch (error) {
       console.log(error);
