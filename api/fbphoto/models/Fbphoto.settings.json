@@ -7,7 +7,7 @@
   },
   "attributes": {
     "message": {
-      "type": "string"
+      "type": "text"
     },
     "permalink_url": {
       "type": "string"
