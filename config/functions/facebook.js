@@ -65,13 +65,19 @@ const first_with_ht = (data, ht) =>{
 }
 
 module.exports = {
-  updatePhotoOfTheWeek: async () => {
+
+  updatePhotoOfTheWeek: async (inData) => {
     const rollbackPhoto = await strapi.query('fbphoto').find({});
     strapi.query('fbphoto').delete({
       id: rollbackPhoto[0].id
     });
     try{
-      const data = await getFBData(100);
+      let data;
+      if(!inData){
+        data = await getFBData(100);
+      }else{
+        data = inData
+      }
       const photoOfTheWeek = first_with_ht(data, "#fotkatyzdna");
       strapi.query('fbphoto').create(photoOfTheWeek);
     } catch (error) {
@@ -80,12 +86,16 @@ module.exports = {
     }
 
   },
-  updateNews: async () => {
-    console.log('fuctnion called!')
+  updateNews: async (inData) => {
     const rollBackNews = await deleteSavedNews();
 
     try {
-      const data = await getFBData(20);
+      let data;
+      if(!inData){
+        data = await getFBData(20);
+      }else{
+        data = inData
+      }
       const fb_news = extract_news(data);
       fb_news.forEach( fbn =>{
           strapi.query('fbnews').create(fbn);
@@ -98,9 +108,14 @@ module.exports = {
 
 
   },
-  updateMedia: async () => {
+  updateMedia: async (inData) => {
     try{
-      const data = await getFBData(30);
+      let data;
+      if(!inData){
+        data = await getFBData(30);
+      }else{
+        data = inData
+      }
       const media = extractMedia(data);
       const rollbackMedia = await strapi.query('fbmedia').find({})
       rollbackMedia.forEach(m => strapi.query('fbmedia').delete({
@@ -121,5 +136,12 @@ module.exports = {
         strapi.query('fbmedia').create(med);
       })
     }
-  }
+  },
+  updateAll: async () => {
+    const data = await getFBData(100);
+    module.exports.updateNews(data);
+    module.exports.updateMedia(data);
+    module.exports.updatePhotoOfTheWeek(data);
+    console.log('All resources have been updated');
+  },
 }

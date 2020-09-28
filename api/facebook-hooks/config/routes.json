@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/facebook-hooks/",
+      "handler": "facebook-hooks.verify",
+      "config": {
+
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/facebook-hooks/",
+      "handler": "facebook-hooks.notify",
+      "config": {
+
+      }
+    }
+  ]
+}
