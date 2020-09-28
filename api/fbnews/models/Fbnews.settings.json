@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "fbnews",
+  "options": {
+    "increments": true,
+    "comment": ""
+  },
+  "attributes": {
+    "message": {
+      "type": "string"
+    },
+    "permalink_url": {
+      "type": "string"
+    },
+    "full_picture": {
+      "type": "string"
+    },
+    "picture": {
+      "type": "string"
+    },
+    "created_time": {
+      "type": "string"
+    }
+  }
+}

@@ -1,6 +1,7 @@
 'use strict';
 
 const axios = require('axios');
+const { default: createStrapi } = require('strapi');
 
 
 /**
@@ -40,23 +41,11 @@ const find_post_type = (data, type) => {
 
 module.exports = {
   findAll: async (ctx) => {
-
-    const {data:{data}} = await axios.get(url, {
-      params: {
-        fields,
-        limit,
-        access_token:process.env.FB_ACCESS_TOKEN
-      }
-    })
-
-
-    const news = extract_news(data);
-    const img_of_the_week = first_with_ht(data, "#mtbiker")
-    const photos = find_post_type(data, "added_photos")
-
-
+    const news = await strapi.query('fbnews').find({});
+    const img_of_the_week = await strapi.query('fbphoto').findOne({})
+    const media = await strapi.query('fbmedia').find({});
     return ctx.send({
-      news, img_of_the_week, photos
+      media, news, img_of_the_week
     });
   }
 };

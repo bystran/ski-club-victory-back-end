@@ -8,10 +8,5 @@
     "increments": true,
     "timestamps": true
   },
-  "attributes": {
-    "meno": {
-      "type": "string",
-      "required": true
-    }
-  }
+  "attributes": {}
 }

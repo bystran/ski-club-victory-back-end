@@ -1,0 +1,13 @@
+{
+  "connection": "default",
+  "collectionName": "fbmedia",
+  "options": {
+    "increments": true,
+    "comment": ""
+  },
+  "attributes": {
+    "media": {
+      "type": "json"
+    }
+  }
+}
