@@ -26,6 +26,15 @@
       "type": "string",
       "required": true
     },
+    "obrazokPravaStrana": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
     "OnasText": {
       "type": "text",
       "required": true
