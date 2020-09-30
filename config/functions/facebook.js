@@ -6,10 +6,8 @@ const fields = 'id,message,permalink_url,full_picture,picture,message_tags,statu
 
 const deleteSavedNews = async () => {
   console.log('Deleting news');
-  const news = await strapi.query('fbnews').find({});
-  news.forEach(n => strapi.query('fbnews').delete({
-    id: n.id
-  }));
+  const news = await strapi.query('fbnews').delete({id_gt: -1});
+  console.log('News are deleted.')
   return news;
 }
 const getFBData = async (limit) => {
@@ -68,16 +66,7 @@ const first_with_ht = (data, ht) =>{
 module.exports = {
 
   updatePhotoOfTheWeek: async (inData) => {
-    console.log('Updating photo of the week...');
-    const rollbackPhoto = await strapi.query('fbphoto').find({});
-    try{
-      strapi.query('fbphoto').delete({
-        id: rollbackPhoto[0].id
-      });
-    }catch(e){
-
-    }
-
+    const rollbackPhoto = await strapi.query('fbphoto').delete({id_gt: -1});
     try{
       let data;
       if(!inData){
@@ -87,10 +76,10 @@ module.exports = {
         data = inData
       }
       const photoOfTheWeek = first_with_ht(data, "#fotkatyzdna");
-      strapi.query('fbphoto').create(photoOfTheWeek);
+      await strapi.query('fbphoto').create(photoOfTheWeek);
     } catch (error) {
       console.log(error);
-      strapi.query.create(rollbackPhoto[0]);
+      await strapi.query.create(rollbackPhoto[0]);
     }
 
   },
@@ -105,18 +94,15 @@ module.exports = {
         data = inData
       }
       const fb_news = extract_news(data);
-      try {
-        fb_news.forEach( fbn =>{
-            strapi.query('fbnews').create(fbn);
-        });
-      } catch (error) {
-        console.log(error);
-      }
+
+      fb_news.forEach( async fbn =>{
+          await strapi.query('fbnews').create(fbn);
+      });
+
 
     } catch (error) {
       console.log(error);
-      rollBackNews.forEach(n=>strapi.query('fbnews').create(n))
-      return null;
+      rollBackNews.forEach(async n=>await strapi.query('fbnews').create(n))
     }
 
 
@@ -125,34 +111,32 @@ module.exports = {
     console.log('Updating media...');
     try{
       let data;
-      if(!inData){
-        data = await getFBData(30);
-      }else{
-        data = inData
-      }
-      const media = extractMedia(data);
-      const rollbackMedia = await strapi.query('fbmedia').find({})
-      rollbackMedia.forEach(m => strapi.query('fbmedia').delete({
-        id: m.id
-      }))
 
-      media.forEach(med=>{
-        strapi.query('fbmedia').create({
+      if(!inData){
+        data = await getFBData(50);
+      }else{
+        data = inData;
+      }
+
+      const media = extractMedia(data);
+      console.log(media);
+      const rollbackMedia = await strapi.query('fbmedia').delete({id_gt: -1})
+      media.forEach(async med=>{
+        await strapi.query('fbmedia').create({
           media: med
         })
       })
 
-      return media;
 
     } catch (error) {
       console.log(error);
-      rollbackMedia.forEach(med => {
-        strapi.query('fbmedia').create(med);
+      rollbackMedia.forEach(async med => {
+        await strapi.query('fbmedia').create(med);
       })
     }
   },
   updateAll: async () => {
-    const data = await getFBData(100);
+    const data = await getFBData(50);
     module.exports.updatePhotoOfTheWeek(data);
     module.exports.updateNews(data);
     module.exports.updateMedia(data);
