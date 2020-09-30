@@ -36,5 +36,6 @@
       "plugin": "upload",
       "required": true
     }
-  }
+  },
+  "__filename__": "celorocna-priprava.json"
 }

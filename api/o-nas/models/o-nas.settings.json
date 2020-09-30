@@ -45,10 +45,10 @@
       "min": 4
     },
     "celorocnaPriprava": {
-      "required": true,
-      "type": "component",
-      "repeatable": false,
-      "component": "komponent.celorocnaPriprava"
+       "required": false,
+       "type": "component",
+       "repeatable": false,
+       "component": "komponent.celorocna-priprava"
     }
-  }
+ }
 }
