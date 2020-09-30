@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_komponent_celorocna_pripravas",
+  "info": {
+    "name": "CelorocnaPriprava",
+    "icon": "bolt"
+  },
+  "options": {},
+  "attributes": {
+    "nadpis": {
+      "type": "string",
+      "required": true
+    },
+    "podnadpis": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": true
+    },
+    "obrazok1": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "obrazok2": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  },
+  "__filename__": "celorocna-priprava.json"
+}

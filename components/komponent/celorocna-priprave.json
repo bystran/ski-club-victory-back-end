@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_komponent_celorocna_pripraves",
+  "info": {
+    "name": "CelorocnaPriprave",
+    "icon": "child"
+  },
+  "options": {},
+  "attributes": {
+    "nadpis": {
+      "type": "string",
+      "required": true
+    },
+    "podnadpis": {
+      "type": "string"
+    },
+    "obrazok1": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "obrazok2": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}
