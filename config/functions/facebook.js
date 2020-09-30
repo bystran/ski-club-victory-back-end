@@ -66,7 +66,7 @@ const first_with_ht = (data, ht) =>{
 module.exports = {
 
   updatePhotoOfTheWeek: async (inData) => {
-    const rollbackPhoto = await strapi.query('fbphoto').delete({id_gt: -1});
+    const rollbackPhoto = await strapi.query('fbphoto').delete({id_gte: 0});
     try{
       let data;
       if(!inData){
@@ -108,6 +108,7 @@ module.exports = {
 
   },
   updateMedia: async (inData) => {
+    const rollbackMedia = await strapi.query('fbmedia').delete({id_gte: 0})
     console.log('Updating media...');
     try{
       let data;
@@ -119,8 +120,7 @@ module.exports = {
       }
 
       const media = extractMedia(data);
-      console.log(media);
-      const rollbackMedia = await strapi.query('fbmedia').delete({id_gt: -1})
+
       media.forEach(async med=>{
         await strapi.query('fbmedia').create({
           media: med
