@@ -43,12 +43,6 @@
       "component": "komponent.infoska",
       "max": 6,
       "min": 4
-    },
-    "celorocnaPriprava": {
-      "required": true,
-      "type": "component",
-      "repeatable": false,
-      "component": "komponent.celorocnaPriprava"
     }
   }
 }
