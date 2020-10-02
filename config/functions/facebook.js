@@ -137,10 +137,14 @@ module.exports = {
   updateAll: async () => {
     const post_limit = 50;
     const data = await getFBData(post_limit);
-    module.exports.updatePhotoOfTheWeek(data);
-    module.exports.updateNews(data);
-    module.exports.updateMedia(data);
+    const latest_post = data[0]
+    const latest_post_from_db = await strapi.query('fbnews').findOne({created_time:latest_post.created_time});
+    if(!latest_post_from_db){
+      module.exports.updatePhotoOfTheWeek(data);
+      module.exports.updateNews(data);
+      module.exports.updateMedia(data);
+      console.log('All resources have been updated');
+    }
 
-    console.log('All resources have been updated');
   },
 }
