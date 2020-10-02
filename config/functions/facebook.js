@@ -1,12 +1,12 @@
 const axios = require('axios');
 
 const url = 'https://graph.facebook.com/v8.0/172612366211657/feed';
-const fields = 'id,message,permalink_url,full_picture,picture,message_tags,status_type,created_time,attachments.limit(10){media_type,type,media,description,url,unshimmed_url,target,description_tags,title, subattachments}';
+const fields = 'id,message,permalink_url,full_picture,picture,message_tags,status_type,created_time,attachments{media_type,type,media,description,url,unshimmed_url,target,description_tags,title, subattachments}';
 
 
 const deleteSavedNews = async () => {
   console.log('Deleting news');
-  const news = await strapi.query('fbnews').delete({id_gt: -1});
+  const news = await strapi.query('fbnews').delete({id_gte: 0});
   console.log('News are deleted.')
   return news;
 }
@@ -94,7 +94,6 @@ module.exports = {
         data = inData
       }
       const fb_news = extract_news(data);
-
       fb_news.forEach( async fbn =>{
           await strapi.query('fbnews').create(fbn);
       });
@@ -108,7 +107,7 @@ module.exports = {
 
   },
   updateMedia: async (inData) => {
-    const rollbackMedia = await strapi.query('fbmedia').delete({id_gte: 0})
+    const rollbackMedia = await strapi.query('fbmedia').delete({id_gte: 0, _limit:5000})
     console.log('Updating media...');
     try{
       let data;
@@ -121,7 +120,7 @@ module.exports = {
 
       const media = extractMedia(data);
 
-      media.forEach(async med=>{
+      media.slice(0, 100).forEach(async med=>{
         await strapi.query('fbmedia').create({
           media: med
         })
@@ -136,7 +135,8 @@ module.exports = {
     }
   },
   updateAll: async () => {
-    const data = await getFBData(50);
+    const post_limit = 50;
+    const data = await getFBData(post_limit);
     module.exports.updatePhotoOfTheWeek(data);
     module.exports.updateNews(data);
     module.exports.updateMedia(data);
