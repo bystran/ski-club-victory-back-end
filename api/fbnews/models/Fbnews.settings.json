@@ -9,6 +9,9 @@
     "message": {
       "type": "text"
     },
+    "status_type":{
+      "type": "text"
+    },
     "permalink_url": {
       "type": "text"
     },

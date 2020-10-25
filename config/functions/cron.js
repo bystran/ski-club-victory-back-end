@@ -20,7 +20,8 @@ module.exports = {
   // '0 1 * * 1': () => {
   //
   // }
-  '* * * * *': () => {
+  '*/5 * * * *': () => {
+    console.log("Cron!");
     strapi.config.functions.facebook.updateAll();
   }
 };
